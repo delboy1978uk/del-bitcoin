@@ -1,0 +1,29 @@
+{
+    "name": "delboy1978uk/del-bitcoin",
+    "description": "Blockchain Bitcoin Wallet API Functionality for Zend Framework 2",
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "bitcoin",
+        "blockchain"
+    ],
+    "homepage": "https://github.com/delboy1978uk/del-bitcoin",
+    "authors": [
+        {
+            "name": "Derek Stephen McLean",
+            "email": "delboy1978uk@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",
+    },
+    "autoload": {
+        "psr-0": {
+            "DelBitcoin": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    }
+}
