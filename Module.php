@@ -23,8 +23,12 @@ class Module
     public function getServiceConfig()
     {
         return array(
-            'invokables' => array(
-                'bitcoin_client_service'   => 'Bitcoin\Service\Client',
+            'factories' => array(
+                'bitcoin_client_service' => function ($sm) {
+                    return new \Bitcoin\Service\Client(
+                        $sm->get('config')['bitcoin']
+                    );
+                }
             ),
         );
     }

@@ -4,18 +4,22 @@ namespace Bitcoin\Service;
 use Zend\Http\Client as HttpClient;
 use Zend\Http\Client\Adapter\Curl as CurlAdapter;
 use Zend\Json;
+use Zend\ServiceManager\ServiceManager;
+use Zend\ServiceManager\ServiceManagerAwareInterface;
 
-class Client
+class Client implements ServiceManagerAwareInterface
 {
     protected $blockchain_identifier;
     protected $blockchain_password;
     protected $url;
     protected $client;
+    protected $service_manager;
     
-    public function __construct()
+    public function __construct(array $bitcoin)
     {
-        $this->blockchain_identifier = '6a3ae2a7-dabc-f7a4-f348-13635f28538b';
-        $this->blockchain_password = 'j4m3580nd!';
+
+        $this->blockchain_identifier = $bitcoin['blockchain_identifier'];
+        $this->blockchain_password = $bitcoin['blockchain_password'];
         $this->url = 'https://blockchain.info/merchant/'.$this->blockchain_identifier;
         
         $this->client = new HttpClient();
@@ -93,7 +97,7 @@ class Client
     }
 
     /**
-     * 
+     *
      * @return string
      */
     public function listWalletAddresses()
@@ -180,4 +184,24 @@ class Client
         $body = $response->getBody();
         return $body;
     }
+
+    /**
+     * Set service manager
+     *
+     * @param ServiceManager $serviceManager
+     */
+    public function setServiceManager(ServiceManager $serviceManager)
+    {
+        $this->service_manager = $serviceManager;
+    }
+
+    /**
+     * @return ServiceManager
+     */
+    public function getServiceManager()
+    {
+        return $this->service_manager;
+    }
+
+
 }

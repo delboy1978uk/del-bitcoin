@@ -1,0 +1,29 @@
+<?php
+
+
+    /**
+     * Bitcoin Configuration
+     *
+     * If you have a ./config/autoload/ directory set up for your project, you can
+     * drop this config file in it and change the values as you wish.
+     */
+    $settings = array
+    (
+        /**
+         * Your Blockchain Developer key
+         */
+        'blockchain_identifier' => 'YOUR_API_KEY',
+
+        /**
+         * Your Blockchain Developer password
+         */
+        'blockchain_password' => 'YOUR_PASSWORD'
+    );
+
+
+    /**
+     * You do not need to edit below this line
+     */
+    return array(
+        'bitcoin' => $settings,
+    );
