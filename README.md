@@ -13,6 +13,7 @@ Example use - Wallet Balance View Helper
 Service commands:
 
 public function getWalletBalance($address);
+
 public function sendBitcoin($from,$to,$amount,$fee = 50000, $note = null);
 
 public function sendMultipleTransactions($from,$recipients,$fee = 50000, $note = null);
